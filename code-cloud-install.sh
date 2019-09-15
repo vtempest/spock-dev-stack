@@ -17,12 +17,9 @@ fi
 
 
 #install docker compose
-curl -s https://get.docker.com | bash -s --
+#curl -s https://get.docker.com | bash -s --
 sudo usermod -aG docker $USER
-sudo su - $USER
 sudo apt install -y docker-compose
-
-#run docker
-docker-compose up -d
+sudo su - $USER -c "cd $PWD ;docker-compose up -d"
 
 
