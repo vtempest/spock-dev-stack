@@ -20,6 +20,8 @@ fi
 curl -s https://get.docker.com | bash -s --
 sudo usermod -aG docker $USER
 sudo apt install -y docker-compose
+sudo systemctl enable docker
+sudo chmod -R 777 /var/run/docker.sock
 sudo su - $USER -c "cd $PWD ;docker-compose up -d"
 
 
