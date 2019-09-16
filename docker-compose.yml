@@ -1,19 +1,13 @@
 version: "3.5"
 services:
-
   traefik:
     image: traefik:v2.0-alpine
     command:
-      - "--api.insecure=true"
       - "--providers.docker=true"
-      # - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
       - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
-      # - "--certificatesresolvers.letsencrypt.acme.email=admin@traefik.io"
-      - "--certificatesresolvers.letsencrypt.acme.storage=/acme.json"
-
     ports:
       - "80:80"
       - "443:443"
@@ -30,7 +24,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin:/usr/local/sbin
     labels:
-      traefik.http.routers.code.rule: Host(`code.${DOMAIN}`)
-      traefik.http.routers.code2.rule: Host(`code.${DOMAIN}`)
+      traefik.http.routers.code.rule: Host(`coder.${DOMAIN}`)
+      traefik.http.routers.code2.rule: Host(`coder.${DOMAIN}`)
       traefik.http.routers.code2.entrypoints: websecure
       traefik.http.routers.code2.tls.certresolver: letsencrypt
