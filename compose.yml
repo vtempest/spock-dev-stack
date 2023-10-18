@@ -1,0 +1,60 @@
+services: 
+  app-dev:
+    build: ./
+    container_name: app-dev
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    expose:
+      - "5173"
+    networks:
+      - caddy
+    working_dir: /app
+    volumes:
+      - /app/node_modules
+      - .:/app
+    environment:
+      - PUBLIC_API=http://localhost:8090
+    labels:
+      caddy: app.${DOMAIN}
+      caddy.reverse_proxy: "{{upstreams 5173}}"
+
+  
+
+  # Pocketbase - sqlite, auth, api, admin ui
+  db-admin:
+    image: ghcr.io/muchobien/pocketbase:latest
+    container_name: pocketbase
+    restart: unless-stopped
+    ports:
+      - "8090:8090"
+    expose:
+      - "8090"
+    networks:
+      - caddy
+    volumes:
+      - ./pb_data:/pb_data
+    labels:
+      caddy: api.${DOMAIN}
+      caddy.reverse_proxy: "{{upstreams 8090}}"
+
+  # Caddy - proxy server router for containers
+  caddy:  
+    image: lucaslorentz/caddy-docker-proxy:ci-alpine
+    container_name: caddy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/caddy/data:/data
+    restart: unless-stopped
+    environment:
+      - CADDY_INGRESS_NETWORKS=caddy
+    networks:
+      - caddy
+
+
+networks:
+  caddy:
+    external: true

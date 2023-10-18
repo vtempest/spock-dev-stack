@@ -1,0 +1,14 @@
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+/dist
+.env
+!.env.example
+vite.config.*.timestamp-*
+pb_data
+/pb_data
+.vscode
+*.lockb
+pnpm-lock.yaml
