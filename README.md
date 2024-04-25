@@ -31,7 +31,7 @@ Full-stack all-in-one in 3 containers
 
 ## Install
 
-1. Clone to localhost or server 
+1. Clone to localhost or server `git clone https://github.com/vtempest/spock-dev-stack`
 2. `mv .env.example .env` and set the domain in `.env` 
 3. `docker network create caddy`
 4. `docker-compose up -d` 

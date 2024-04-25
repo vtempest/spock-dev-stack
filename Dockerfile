@@ -1,4 +1,4 @@
-FROM oven/bun:latest AS runtime
+FROM oven/bun:alpine AS runtime
 WORKDIR /app
 # COPY package.json ./
 COPY . .
