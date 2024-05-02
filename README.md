@@ -1,8 +1,6 @@
 
 <img src="https://i.imgur.com/2W62ySQ.png"  height="300px">  <img src="https://i.imgur.com/eRoKfA5.png"  height="300px">
 
-#### Elegantly Simple, Functionally Brilliant
-
 Full-stack all-in-one in 3 containers
 * SvelteKit real-world demo of OAuth, posts, comments, profiles, likes, followers
 * Pocketbase SQL, admin dashboard
@@ -20,6 +18,15 @@ Full-stack all-in-one in 3 containers
 - [Vite](https://vitejs.dev) bundle compiler
 
 
+#### Backend Alternatives
+
+- [PostgreSQL Supabase](https://supabase.com/docs/guides/getting-started/quickstarts/sveltekit) 
+- [Drizzle ORM](https://orm.drizzle.team/docs/overview)
+- [Lucia OAuth](https://github.com/lucia-auth/examples/tree/main/sveltekit/github-oauth)
+- [Ava Unit Testing](https://github.com/avajs/ava)
+- [Redoc OpenAPI Internal Docs](https://github.com/Redocly/redoc?tab=readme-ov-file)
+- [Docusaurus Public Docs](https://docusaurus.io/docs)
+
 #### Interface Alternatives
 
 - [List of Svelte Libraries](https://github.com/TheComputerM/awesome-svelte#ui-libraries)
@@ -29,12 +36,6 @@ Full-stack all-in-one in 3 containers
 - [shadcdn-svelte](https://shadcn-svelte.com/docs)
 - [Icon sets](https://www.svgrepo.com/collections)
 
-#### Server API Alternatives
-
-- [PostgreSQL Supabase](https://supabase.com/docs/guides/getting-started/quickstarts/sveltekit) - alternative  db admin with  cloud or selfhosted containers
-- [Drizzle ORM](https://orm.drizzle.team/docs/overview)
-- [Lucia OAuth](https://github.com/lucia-auth/examples/tree/main/sveltekit/github-oauth)
-- [Ava Unit Testing](https://github.com/avajs/ava)
 
 ## Install
 
